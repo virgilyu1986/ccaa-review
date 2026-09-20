@@ -4033,10 +4033,12 @@ function confirmRestoreSnapshot(key){
 //   防线2 每日快照(实时)：打开页面/完成测试即刷新当日全量快照，保留7天，可一键回滚
 //   防线3 自动下载备份文件：完成每次测试/周复盘后自动下载 JSON 到系统"下载"文件夹（浏览器缓存全清也能找回）
 //   防线4 备份字段全覆盖：导出/快照/保险库均含 daily/errors/weekly/studyDays/settings + 背诵进度，导入前自动留快照
-const FIXED_STUDY_HOST='a0797cf3015f4b3d9376e88f9df2fc92.app.workbuddy.link';
-const FIXED_STUDY_URL='https://'+FIXED_STUDY_HOST;
+const FIXED_STUDY_HOST='virgilyu1986.github.io';
+const FIXED_STUDY_URL='https://virgilyu1986.github.io/ccaa-review/';
+// 兼容白名单：旧 workbuddy.link 地址与本地预览不算"漂移"，不弹警示
+const STABLE_HOSTS=[FIXED_STUDY_HOST,'a0797cf3015f4b3d9376e88f9df2fc92.app.workbuddy.link'];
 function isStableOrigin(){
-  try{return location.hostname===FIXED_STUDY_HOST}catch(e){return false}
+  try{return STABLE_HOSTS.indexOf(location.hostname)!==-1}catch(e){return false}
 }
 function initOriginGuard(){
   const bar=document.getElementById('originWarn');
