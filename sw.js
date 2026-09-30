@@ -1,7 +1,7 @@
 // CCAA复习台 Service Worker（v6.13.7）
 // 策略：HTML 页面请求一律 network-first——联网时永远拿服务器最新版，
 // 解决 GitHub Pages 默认 10 分钟缓存导致"更新后看不到新内容"的问题；离线时才回退缓存。
-const CACHE = 'ccaa-' + 'v6.14.1';
+const CACHE = 'ccaa-' + 'v6.15.0';
 
 self.addEventListener('install', function (e) {
   self.skipWaiting();
